@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services — DRY1 Premium Laundry & Fabric Care</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            DEFAULT: '#0a1a33',
+                            deep: '#061224',
+                            card: '#0a172e',
+                        },
+                        royal: '#1f3d8f',
+                        cyan: '#22c7e0',
+                        zari: '#caa54a',
+                        zariLight: '#e8c878',
+                    },
+                    fontFamily: {
+                        sans: ['IBM Plex Sans', 'sans-serif'],
+                        display: ['Bricolage Grotesque', 'sans-serif'],
+                        mono: ['IBM Plex Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #061224;
+            color: #ffffff;
+            font-family: 'IBM Plex Sans', sans-serif;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, .font-display {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            letter-spacing: -0.02em;
+        }
+
+        /* --- Dynamic Animated Ambient Background Effects --- */
+        .bg-grid-pattern {
+            background-image: linear-gradient(to right, rgba(34, 199, 224, 0.04) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(202, 165, 74, 0.04) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        @keyframes floatGlow1 {
+            0%, 100% { transform: translate(0px, 0px) scale(1); }
+            50% { transform: translate(60px, -40px) scale(1.15); }
+        }
+        @keyframes floatGlow2 {
+            0%, 100% { transform: translate(0px, 0px) scale(1); }
+            50% { transform: translate(-50px, 50px) scale(1.2); }
+        }
+
+        .orb-glow-1 {
+            animation: floatGlow1 12s ease-in-out infinite;
+        }
+        .orb-glow-2 {
+            animation: floatGlow2 15s ease-in-out infinite;
+        }
+
+        /* Card Glassmorphism & Hover Effects */
+        .glass-card {
+            background: rgba(10, 23, 46, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(202, 165, 74, 0.25);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .glass-card-hover:hover {
+            transform: translateY(-8px);
+            border-color: rgba(34, 199, 224, 0.8);
+            box-shadow: 0 25px 50px rgba(34, 199, 224, 0.25), 0 0 20px rgba(202, 165, 74, 0.2);
+        }
+        .glowing-btn {
+            background: linear-gradient(135deg, #caa54a, #e8c878);
+            color: #061224;
+            box-shadow: 0 0 25px rgba(202, 165, 74, 0.4);
+            transition: all 0.3s ease;
+        }
+        .glowing-btn:hover {
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 0 35px rgba(202, 165, 74, 0.7);
+        }
+        .glowing-btn-cyan {
+            background: linear-gradient(135deg, #22c7e0, #1596ab);
+            color: #04141c;
+            box-shadow: 0 0 25px rgba(34, 199, 224, 0.4);
+            transition: all 0.3s ease;
+        }
+        .glowing-btn-cyan:hover {
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 0 35px rgba(34, 199, 224, 0.7);
+        }
+        .zari-glow-text {
+            text-shadow: 0 0 25px rgba(202, 165, 74, 0.5);
+        }
+        .video-glow-container {
+            box-shadow: 0 0 30px rgba(34, 199, 224, 0.15);
+        }
+    </style>
+</head>
+<body class="relative min-h-screen text-slate-100 bg-navy-deep">
+
+    <!-- Grid Overlay Background -->
+    <div class="fixed inset-0 bg-grid-pattern pointer-events-none z-0 opacity-60"></div>
+
+    <!-- Floating Animated Light Orbs -->
+    <div class="fixed top-10 left-10 w-[500px] h-[500px] rounded-full bg-cyan/15 blur-[140px] pointer-events-none z-0 orb-glow-1"></div>
+    <div class="fixed bottom-20 right-10 w-[600px] h-[600px] rounded-full bg-zari/15 blur-[160px] pointer-events-none z-0 orb-glow-2"></div>
+    <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-royal/20 blur-[180px] pointer-events-none z-0"></div>
+
+    <!-- Header Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 px-6 lg:px-12 py-4 flex justify-between items-center glass-card border-b border-zari/20">
+        <a href="index.html" class="flex items-center space-x-3">
+            <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-zari to-cyan flex items-center justify-center font-bold text-lg text-navy-deep shadow-lg shadow-zari/30">
+                <span class="w-2.5 h-2.5 rounded-full bg-cyan animate-ping"></span>
+            </div>
+            <span class="text-2xl font-black tracking-wider text-white font-display">DRY<span class="text-zari">1</span></span>
+        </a>
+        <div class="hidden md:flex space-x-8 text-slate-300 font-medium text-sm tracking-wide">
+            <a href="index.html" class="hover:text-cyan transition-colors">Home</a>
+            <a href="services.html" class="text-cyan font-semibold">Services</a>
+            <a href="index.html#process" class="hover:text-cyan transition-colors">How It Works</a>
+            <a href="index.html#pricing" class="hover:text-cyan transition-colors">Pricing</a>
+            <a href="index.html#contact" class="hover:text-cyan transition-colors">Contact</a>
+        </div>
+        <a href="index.html#contact" class="glowing-btn px-6 py-2.5 rounded-full font-semibold text-xs uppercase tracking-wider">Book a Pickup</a>
+    </nav>
+
+    <!-- Page Content Wrap -->
+    <div class="relative z-10">
+
+        <!-- Page Header Banner -->
+        <section class="relative pt-36 pb-12 px-6 lg:px-12 max-w-7xl mx-auto text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan/20 border border-cyan/40 text-cyan text-xs font-mono tracking-widest uppercase mb-4 backdrop-blur-md">
+                <span class="w-2 h-2 rounded-full bg-cyan animate-pulse"></span> Specialized Equipment & Craftsmanship
+            </div>
+            <h1 class="text-4xl sm:text-6xl font-extrabold font-display text-white mb-4">
+                Our Care <span class="text-transparent bg-clip-text bg-gradient-to-r from-zari via-zariLight to-cyan zari-glow-text">Services & Studio</span>
+            </h1>
+            <p class="text-slate-300 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
+                Explore our state-of-the-art machinery and specialized treatment workflows designed to deliver pristine care for every fabric and footwear type.
+            </p>
+
+            <!-- Quick Filter Badges -->
+            <div class="flex flex-wrap justify-center gap-2 pt-8">
+                <a href="#service-1" class="px-4 py-1.5 rounded-full bg-navy-card/90 border border-zari/40 text-xs text-zari hover:bg-zari/20 transition-all">Saree Roll Polish</a>
+                <a href="#service-2" class="px-4 py-1.5 rounded-full bg-navy-card/90 border border-cyan/40 text-xs text-cyan hover:bg-cyan/20 transition-all">Shoe Spa</a>
+                <a href="#service-3" class="px-4 py-1.5 rounded-full bg-navy-card/90 border border-slate-700 text-xs text-slate-300 hover:border-zari transition-all">Stain Extraction</a>
+                <a href="#service-4" class="px-4 py-1.5 rounded-full bg-navy-card/90 border border-slate-700 text-xs text-slate-300 hover:border-cyan transition-all">Smart Wash</a>
+                <a href="#service-5" class="px-4 py-1.5 rounded-full bg-navy-card/90 border border-slate-700 text-xs text-slate-300 hover:border-zari transition-all">Steam Press</a>
+                <a href="#service-7" class="px-4 py-1.5 rounded-full bg-navy-card/90 border border-slate-700 text-xs text-slate-300 hover:border-cyan transition-all">Doorstep Logistics</a>
+            </div>
+        </section>
+
+        <!-- Services Grid with Integrated Video Players -->
+        <section class="py-8 px-6 lg:px-12 max-w-7xl mx-auto space-y-16">
+
+            <!-- Service 1: Saree Roll Polish Ironing Machine -->
+            <div id="service-1" class="glass-card glass-card-hover rounded-3xl p-6 lg:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-zari/40">
+                <div class="lg:col-span-6 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <span class="px-3 py-1 rounded-full bg-zari/20 text-zari text-xs font-mono font-bold uppercase tracking-wider">01 / Heritage Care</span>
+                        <span class="text-xs text-slate-400 font-mono">Precision Roller Technology</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-bold font-display text-white">Saree Roll Polish & Ironing Machine</h2>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        Designed specifically for high-value Kanchipuram, Banarasi, and silk sarees. Our automated steam roller press restores natural fabric shine, eliminates deep wrinkles without direct harsh heat, and preserves intricate zari embroidery and borders.
+                    </p>
+                    <div class="grid grid-cols-2 gap-3 py-2 border-y border-slate-800 text-xs font-mono text-slate-300">
+                        <div><b>Turnaround:</b> 24-48 Hours</div>
+                        <div><b>Fabric Rating:</b> 100% Silk Safe</div>
+                    </div>
+                    <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+                        <li class="flex items-center gap-2"><span class="text-zari">✓</span> Soft steam cylinder smoothing</li>
+                        <li class="flex items-center gap-2"><span class="text-zari">✓</span> Zero thread pull or zari tarnish</li>
+                        <li class="flex items-center gap-2"><span class="text-zari">✓</span> Crisp crease-free rolls ready for storage</li>
+                    </ul>
+                    <div class="pt-2 flex items-center gap-4">
+                        <a href="index.html#contact" class="glowing-btn px-6 py-2.5 rounded-full font-semibold text-xs uppercase tracking-wider">Book Saree Polish</a>
+                    </div>
+                </div>
+                <div class="lg:col-span-6 overflow-hidden rounded-2xl border border-zari/30 shadow-2xl bg-black/60 aspect-video relative group video-glow-container">
+                    <video autoplay loop muted playsinline class="w-full h-full object-cover">
+                        <source src="saree_roll_polish_ironing_machine.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="absolute top-4 left-4 bg-navy-deep/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-mono text-zari border border-zari/30 flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-zari animate-ping"></span> Live Roller Process
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 2: Shoe Cleaning Machine -->
+            <div id="service-2" class="glass-card glass-card-hover rounded-3xl p-6 lg:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-cyan/30">
+                <div class="lg:col-span-6 order-2 lg:order-1 overflow-hidden rounded-2xl border border-cyan/30 shadow-2xl bg-black/60 aspect-video relative group video-glow-container">
+                    <video autoplay loop muted playsinline class="w-full h-full object-cover">
+                        <source src="shoe_cleaning_machine.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="absolute top-4 left-4 bg-navy-deep/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-mono text-cyan border border-cyan/30 flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-cyan animate-ping"></span> Rotary Scrub Tech
+                    </div>
+                </div>
+                <div class="lg:col-span-6 order-1 lg:order-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <span class="px-3 py-1 rounded-full bg-cyan/20 text-cyan text-xs font-mono font-bold uppercase tracking-wider">02 / Footwear Care</span>
+                        <span class="text-xs text-slate-400 font-mono">Deep Cleaning Automation</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-bold font-display text-white">Shoe Cleaning Machine</h2>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        Automated multi-brush deep cleaning engineered for sneakers, sports shoes, leather, and suede footwear. High-speed soft bristles remove ground-in mud and tough stains while preserving delicate shoe materials and soles.
+                    </p>
+                    <div class="grid grid-cols-2 gap-3 py-2 border-y border-slate-800 text-xs font-mono text-slate-300">
+                        <div><b>Target Material:</b> Leather, Suede & Canvas</div>
+                        <div><b>Extra Care:</b> Deodorization</div>
+                    </div>
+                    <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+                        <li class="flex items-center gap-2"><span class="text-cyan">✓</span> Multi-angle rotary brush deep scrub</li>
+                        <li class="flex items-center gap-2"><span class="text-cyan">✓</span> Safe for leather, mesh, canvas & suede</li>
+                        <li class="flex items-center gap-2"><span class="text-cyan">✓</span> Odor elimination & sole restoration</li>
+                    </ul>
+                    <div class="pt-2">
+                        <a href="index.html#contact" class="glowing-btn-cyan px-6 py-2.5 rounded-full font-semibold text-xs uppercase tracking-wider">Book Shoe Spa</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 3: Stain Removal Machine -->
+            <div id="service-3" class="glass-card glass-card-hover rounded-3xl p-6 lg:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-6 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <span class="px-3 py-1 rounded-full bg-zari/20 text-zari text-xs font-mono font-bold uppercase tracking-wider">03 / Precision Treatment</span>
+                        <span class="text-xs text-slate-400 font-mono">Spot Extraction Tech</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-bold font-display text-white">Stain Removal Machine</h2>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        Targeted high-pressure chemical spray nozzles paired with ultrasonic extraction remove tough coffee, oil, ink, grease, and food stains without damaging fabric fibers or causing color bleeding.
+                    </p>
+                    <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+                        <li class="flex items-center gap-2"><span class="text-zari">✓</span> Targeted precision spot treatment</li>
+                        <li class="flex items-center gap-2"><span class="text-zari">✓</span> Fiber-safe eco-solvent formulations</li>
+                        <li class="flex items-center gap-2"><span class="text-zari">✓</span> High removal rate for old & stubborn spots</li>
+                    </ul>
+                    <div class="pt-2">
+                        <a href="index.html#contact" class="glowing-btn px-6 py-2.5 rounded-full font-semibold text-xs uppercase tracking-wider">Request Stain Removal</a>
+                    </div>
+                </div>
+                <div class="lg:col-span-6 overflow-hidden rounded-2xl border border-slate-700/80 shadow-2xl bg-black/60 aspect-video relative group">
+                    <video autoplay loop muted playsinline class="w-full h-full object-cover">
+                        <source src="stain_removal_machine.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="absolute top-4 left-4 bg-navy-deep/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-mono text-zari border border-zari/30 flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-zari animate-ping"></span> Ultrasonic Jet Active
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 4: Washing Machines -->
+            <div id="service-4" class="glass-card glass-card-hover rounded-3xl p-6 lg:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-6 order-2 lg:order-1 overflow-hidden rounded-2xl border border-slate-700/80 shadow-2xl bg-black/60 aspect-video relative group">
+                    <video autoplay loop muted playsinline class="w-full h-full object-cover">
+                        <source src="washing.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="absolute top-4 left-4 bg-navy-deep/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-mono text-cyan border border-cyan/30 flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-cyan animate-ping"></span> Microprocessor Cycle
+                    </div>
+                </div>
+                <div class="lg:col-span-6 order-1 lg:order-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <span class="px-3 py-1 rounded-full bg-cyan/20 text-cyan text-xs font-mono font-bold uppercase tracking-wider">04 / Daily Wear Care</span>
+                        <span class="text-xs text-slate-400 font-mono">Calibrated Commercial Drum</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-bold font-display text-white">Smart Washing Machines</h2>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        Commercial-grade, microprocessor-controlled washers with gentle tumble drum cycles. We sort garments by fabric density and color tone, using anti-bacterial eco detergents for a deep, gentle wash.
+                    </p>
+                    <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+                        <li class="flex items-center gap-2"><span class="text-cyan">✓</span> Microfiber & cotton custom cycles</li>
+                        <li class="flex items-center gap-2"><span class="text-cyan">✓</span> Hypoallergenic & soft fabric rinse</li>
+                        <li class="flex items-center gap-2"><span class="text-cyan">✓</span> Separate batch wash for hygiene</li>
+                    </ul>
+                    <div class="pt-2">
+                        <a href="index.html#contact" class="glowing-btn-cyan px-6 py-2.5 rounded-full font-semibold text-xs uppercase tracking-wider">Book Wash & Fold</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 5: Steam / Starch Ironing Machine -->
+            <div id="service-5" class="glass-card glass-card-hover rounded-3xl p-6 lg:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-6 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <span class="px-3 py-1 rounded-full bg-zari/20 text-zari text-xs font-mono font-bold uppercase tracking-wider">05 / Crisp Finishing</span>
+                        <span class="text-xs text-slate-400 font-mono">Boiler Steam & Starch Press</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-bold font-display text-white">Steam & Starch Ironing Machine</h2>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        Industrial boiler steam pressure combined with fine starch application gives shirts, trousers, suits, and uniforms a crisp, showroom-worthy finish without scorching or fabric shine marks.
+                    </p>
+                    <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+                        <li class="flex items-center gap-2"><span class="text-zari">✓</span> High-volume dry steam pressure</li>
+                        <li class="flex items-center gap-2"><span class="text-zari">✓</span> Custom starch levels (Light, Medium, Heavy)</li>
+                        <li class="flex items-center gap-2"><span class="text-zari">✓</span> Sharp collar & sleeve crease preservation</li>
+                    </ul>
+                    <div class="pt-2">
+                        <a href="index.html#contact" class="glowing-btn px-6 py-2.5 rounded-full font-semibold text-xs uppercase tracking-wider">Book Steam Press</a>
+                    </div>
+                </div>
+                <div class="lg:col-span-6 overflow-hidden rounded-2xl border border-slate-700/80 shadow-2xl bg-black/60 aspect-video relative group">
+                    <video autoplay loop muted playsinline class="w-full h-full object-cover">
+                        <source src="steam_starch_ironing_machine.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="absolute top-4 left-4 bg-navy-deep/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-mono text-zari border border-zari/30 flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-zari animate-ping"></span> Boiler Steam Active
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 6: Clothes Packing -->
+            <div id="service-6" class="glass-card glass-card-hover rounded-3xl p-6 lg:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-6 order-2 lg:order-1 overflow-hidden rounded-2xl border border-slate-700/80 shadow-2xl bg-black/60 aspect-video relative group">
+                    <video autoplay loop muted playsinline class="w-full h-full object-cover">
+                        <source src="clothes_packing.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="absolute top-4 left-4 bg-navy-deep/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-mono text-cyan border border-cyan/30 flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-cyan animate-ping"></span> Auto Heat-Seal
+                    </div>
+                </div>
+                <div class="lg:col-span-6 order-1 lg:order-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <span class="px-3 py-1 rounded-full bg-cyan/20 text-cyan text-xs font-mono font-bold uppercase tracking-wider">06 / Protective Packaging</span>
+                        <span class="text-xs text-slate-400 font-mono">Vacuum & Seal Packing</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-bold font-display text-white">Automated Clothes Packing</h2>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        Cleaned garments are automatically folded, heat-sealed, and tagged in dust-proof, moisture-resistant protective covers. Keeps your clothes pristine during transit and long-term closet storage.
+                    </p>
+                    <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+                        <li class="flex items-center gap-2"><span class="text-cyan">✓</span> Airtight heat-seal wrapping</li>
+                        <li class="flex items-center gap-2"><span class="text-cyan">✓</span> Dust & humidity barrier protection</li>
+                        <li class="flex items-center gap-2"><span class="text-cyan">✓</span> Barcode tagged for accurate tracking</li>
+                    </ul>
+                    <div class="pt-2">
+                        <a href="index.html#contact" class="glowing-btn-cyan px-6 py-2.5 rounded-full font-semibold text-xs uppercase tracking-wider">Order Sealed Laundry</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 7: Doorstep Pickup & Delivery -->
+            <div id="service-7" class="glass-card glass-card-hover rounded-3xl p-6 lg:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-zari/40">
+                <div class="lg:col-span-6 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <span class="px-3 py-1 rounded-full bg-zari/20 text-zari text-xs font-mono font-bold uppercase tracking-wider">07 / Express Logistics</span>
+                        <span class="text-xs text-slate-400 font-mono">Small Truck & Bike Fleet</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-bold font-display text-white">Doorstep Pickup & Delivery Fleet</h2>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        Our dedicated logistics team operates a fleet of mini delivery trucks and agile delivery bikes to ensure fast, safe collection and delivery right at your doorstep across the city.
+                    </p>
+                    <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+                        <li class="flex items-center gap-2"><span class="text-zari">✓</span> Scheduled pickup at your convenience</li>
+                        <li class="flex items-center gap-2"><span class="text-zari">✓</span> Weather-proof, secure garment transport</li>
+                        <li class="flex items-center gap-2"><span class="text-zari">✓</span> Live delivery tracking & fast 24h turnaround</li>
+                    </ul>
+                    <div class="pt-2">
+                        <a href="index.html#contact" class="glowing-btn px-6 py-2.5 rounded-full font-semibold text-xs uppercase tracking-wider">Schedule Pickup Now</a>
+                    </div>
+                </div>
+                <div class="lg:col-span-6 overflow-hidden rounded-2xl border border-slate-700/80 shadow-2xl bg-black/60 aspect-video relative group">
+                    <video autoplay loop muted playsinline class="w-full h-full object-cover">
+                        <source src="delivery.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="absolute top-4 left-4 bg-navy-deep/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-mono text-zari border border-zari/30 flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Fleet Active Nearby
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Footer -->
+        <footer class="py-12 px-6 lg:px-12 border-t border-slate-800 text-slate-400 text-sm relative z-20 mt-16 bg-navy-deep">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="flex items-center gap-2 font-display text-white text-lg">
+                    <span class="w-2.5 h-2.5 rounded-full bg-cyan"></span> DRY1 — Premium Laundry & Saree Care Studio
+                </div>
+                <div class="font-mono text-xs text-slate-500">
+                    © 2026 Dry1. Precision care for every fabric.
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>

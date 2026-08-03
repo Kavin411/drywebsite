@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dry1 — Premium Laundry & Saree Care | Chennai</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            DEFAULT: '#0a1a33',
+                            deep: '#061224',
+                            card: '#0a172e',
+                        },
+                        royal: '#1f3d8f',
+                        cyan: '#22c7e0',
+                        zari: '#caa54a',
+                        zariLight: '#e8c878',
+                    },
+                    fontFamily: {
+                        sans: ['IBM Plex Sans', 'sans-serif'],
+                        display: ['Bricolage Grotesque', 'sans-serif'],
+                        mono: ['IBM Plex Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #061224;
+            color: #ffffff;
+            font-family: 'IBM Plex Sans', sans-serif;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, .font-display {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            letter-spacing: -0.02em;
+        }
+        .glass-card {
+            background: rgba(6, 18, 36, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(202, 165, 74, 0.25);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .glass-card-popup {
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+        }
+        @media (min-width: 768px) {
+            .glass-card-popup:hover {
+                transform: translateY(-8px) scale(1.02);
+                border-color: rgba(34, 199, 224, 0.8);
+                box-shadow: 0 25px 60px rgba(34, 199, 224, 0.25), 0 0 30px rgba(202, 165, 74, 0.3);
+                z-index: 30;
+            }
+        }
+        .zari-glow-text {
+            text-shadow: 0 0 25px rgba(202, 165, 74, 0.5);
+        }
+        .glowing-btn {
+            background: linear-gradient(135deg, #caa54a, #e8c878);
+            color: #061224;
+            box-shadow: 0 0 25px rgba(202, 165, 74, 0.4);
+            transition: all 0.3s ease;
+        }
+        .glowing-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 35px rgba(202, 165, 74, 0.7);
+        }
+        .glowing-btn-cyan {
+            background: linear-gradient(135deg, #22c7e0, #1596ab);
+            color: #04141c;
+            box-shadow: 0 0 25px rgba(34, 199, 224, 0.4);
+            transition: all 0.3s ease;
+        }
+        .glowing-btn-cyan:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 35px rgba(34, 199, 224, 0.7);
+        }
+        /* Hide Scrollbar for Carousel */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="relative min-h-screen text-slate-100 antialiased">
+
+    <!-- Header Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 px-4 sm:px-6 lg:px-12 py-3 sm:py-4 flex justify-between items-center glass-card border-b border-zari/20">
+        <a href="index.html" class="flex items-center space-x-2 sm:space-x-3">
+            <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gradient-to-tr from-zari to-cyan flex items-center justify-center font-bold text-base sm:text-lg text-navy-deep shadow-lg shadow-zari/30">
+                <span class="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-cyan animate-ping"></span>
+            </div>
+            <span class="text-xl sm:text-2xl font-black tracking-wider text-white font-display">DRY<span class="text-zari">1</span></span>
+        </a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex space-x-8 text-slate-300 font-medium text-sm tracking-wide">
+            <a href="services.html" class="hover:text-cyan transition-colors">Services</a>
+            <a href="#process" class="hover:text-cyan transition-colors">How It Works</a>
+            <a href="#pricing" class="hover:text-cyan transition-colors">Pricing</a>
+            <a href="#contact" class="hover:text-cyan transition-colors">Contact</a>
+        </div>
+
+        <div class="hidden md:block">
+            <a href="#contact" class="glowing-btn px-6 py-2.5 rounded-full font-semibold text-xs uppercase tracking-wider">Book a Pickup</a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="menu-btn" aria-label="Toggle Menu" class="md:hidden text-white focus:outline-none p-2">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+        </button>
+    </nav>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden fixed inset-x-0 top-[60px] z-40 bg-navy-deep/95 backdrop-blur-xl border-b border-zari/30 p-6 space-y-4 md:hidden">
+        <a href="services.html" class="block text-slate-200 text-base font-medium hover:text-cyan">Services</a>
+        <a href="#process" class="block text-slate-200 text-base font-medium hover:text-cyan" onclick="toggleMenu()">How It Works</a>
+        <a href="#pricing" class="block text-slate-200 text-base font-medium hover:text-cyan" onclick="toggleMenu()">Pricing</a>
+        <a href="#contact" class="block text-slate-200 text-base font-medium hover:text-cyan" onclick="toggleMenu()">Contact</a>
+        <a href="#contact" onclick="toggleMenu()" class="block w-full text-center glowing-btn py-3 rounded-full font-semibold text-xs uppercase tracking-wider mt-4">Book a Pickup</a>
+    </div>
+
+    <!-- Main Dynamic Section with Full Background Video Stream -->
+    <div class="relative w-full">
+        <!-- Background Video Layer -->
+        <div class="fixed top-0 left-0 w-full h-full pointer-events-none z-0 overflow-hidden">
+            <video autoplay loop muted playsinline class="w-full h-full object-cover brightness-[0.7] sm:brightness-[0.85] contrast-[1.02]">
+                <source src="dry1_showcase.mp4" type="video/mp4">
+                <source src="washing.mp4" type="video/mp4">
+                Your browser does not support video playback.
+            </video>
+            <!-- Lighter Gradient Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-b from-navy-deep/60 via-navy-deep/40 to-navy-deep"></div>
+        </div>
+
+        <!-- Hero Section -->
+        <section id="home" class="relative z-10 w-full min-h-screen flex items-center justify-center pt-20 sm:pt-32 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-12">
+            <div class="max-w-7xl w-full mx-auto flex justify-center items-center">
+                <div class="max-w-4xl space-y-6 sm:space-y-8 text-center">
+                    
+                    <!-- Clean & Symmetrical Feature Badges (Grid on Mobile) -->
+                    <div class="grid grid-cols-2 sm:flex sm:flex-wrap justify-center gap-2 max-w-lg mx-auto">
+                        <span class="px-3 py-1.5 text-[11px] sm:text-xs rounded-full bg-navy-card/90 border border-cyan/40 text-cyan font-mono backdrop-blur-md shadow-lg flex items-center justify-center gap-1.5">
+                            <span class="w-1.5 h-1.5 rounded-full bg-cyan shrink-0"></span> Hygienic Wash
+                        </span>
+                        <span class="px-3 py-1.5 text-[11px] sm:text-xs rounded-full bg-navy-card/90 border border-zari/40 text-zari font-mono backdrop-blur-md shadow-lg flex items-center justify-center gap-1.5">
+                            <span class="w-1.5 h-1.5 rounded-full bg-zari shrink-0"></span> Fresh Water Rinse
+                        </span>
+                        <span class="px-3 py-1.5 text-[11px] sm:text-xs rounded-full bg-navy-card/90 border border-cyan/40 text-cyan font-mono backdrop-blur-md shadow-lg flex items-center justify-center gap-1.5">
+                            <span class="w-1.5 h-1.5 rounded-full bg-cyan shrink-0"></span> Premium Fabric
+                        </span>
+                        <span class="px-3 py-1.5 text-[11px] sm:text-xs rounded-full bg-navy-card/90 border border-zari/40 text-zari font-mono backdrop-blur-md shadow-lg flex items-center justify-center gap-1.5">
+                            <span class="w-1.5 h-1.5 rounded-full bg-zari shrink-0"></span> Pro Drying
+                        </span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-tight sm:leading-[1.1] font-display">
+                        Tailored care for every <br class="hidden sm:inline">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-zari via-zariLight to-cyan zari-glow-text">weave & thread.</span>
+                    </h1>
+
+                    <p class="text-slate-200 text-sm sm:text-lg max-w-2xl mx-auto font-light leading-relaxed drop-shadow px-2">
+                        Dry1 combines twin care verticals under one roof: ultra-gentle automated wash-and-fold for daily apparel, alongside specialized machine treatment for silk, shoes, and stain removal.
+                    </p>
+
+                    <!-- Interactive Quick Service Links (Horizontal Scroll Carousel on Mobile) -->
+                    <div class="pt-2 flex overflow-x-auto no-scrollbar sm:flex-wrap justify-start sm:justify-center gap-2 max-w-3xl mx-auto px-2 py-1">
+                        <a href="services.html#service-1" class="shrink-0 px-3.5 py-2 rounded-xl bg-black/50 border border-white/20 hover:border-zari text-slate-200 hover:text-zari text-xs transition-all backdrop-blur-md shadow-md">Saree Roll Polish</a>
+                        <a href="services.html#service-2" class="shrink-0 px-3.5 py-2 rounded-xl bg-black/50 border border-white/20 hover:border-cyan text-slate-200 hover:text-cyan text-xs transition-all backdrop-blur-md shadow-md">Shoe Cleaning</a>
+                        <a href="services.html#service-3" class="shrink-0 px-3.5 py-2 rounded-xl bg-black/50 border border-white/20 hover:border-zari text-slate-200 hover:text-zari text-xs transition-all backdrop-blur-md shadow-md">Stain Extraction</a>
+                        <a href="services.html#service-5" class="shrink-0 px-3.5 py-2 rounded-xl bg-black/50 border border-white/20 hover:border-cyan text-slate-200 hover:text-cyan text-xs transition-all backdrop-blur-md shadow-md">Steam & Starch</a>
+                        <a href="services.html#service-6" class="shrink-0 px-3.5 py-2 rounded-xl bg-black/50 border border-white/20 hover:border-zari text-slate-200 hover:text-zari text-xs transition-all backdrop-blur-md shadow-md">Sealed Packing</a>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 pt-4 px-2 sm:px-0">
+                        <a href="#contact" class="glowing-btn-cyan w-full sm:w-auto px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide text-center shadow-xl">Schedule Free Pickup</a>
+                        <a href="services.html" class="w-full sm:w-auto px-8 py-3.5 rounded-full font-medium text-sm text-white border border-slate-400 hover:border-zari hover:bg-zari/20 transition-all backdrop-blur-md text-center">View All Services →</a>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-2 sm:gap-6 pt-6 sm:pt-10 border-t border-slate-700/60 max-w-xl mx-auto">
+                        <div>
+                            <b class="block font-display text-xl sm:text-3xl text-zari">7+</b>
+                            <span class="text-[10px] sm:text-xs text-slate-300 uppercase font-mono tracking-wider">Services</span>
+                        </div>
+                        <div>
+                            <b class="block font-display text-xl sm:text-3xl text-zari">24h</b>
+                            <span class="text-[10px] sm:text-xs text-slate-300 uppercase font-mono tracking-wider">Fast Delivery</span>
+                        </div>
+                        <div>
+                            <b class="block font-display text-xl sm:text-3xl text-zari">100%</b>
+                            <span class="text-[10px] sm:text-xs text-slate-300 uppercase font-mono tracking-wider">Fabric Safety</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process" class="py-12 sm:py-20 px-4 sm:px-6 lg:px-12 relative z-10">
+            <div class="max-w-7xl mx-auto">
+                <div class="max-w-3xl mb-10 sm:mb-16 space-y-2 sm:space-y-3">
+                    <div class="inline-flex items-center gap-2 text-cyan font-mono text-xs uppercase tracking-widest">
+                        <span class="w-6 h-px bg-cyan"></span> Workflow
+                    </div>
+                    <h2 class="text-2xl sm:text-5xl font-bold font-display text-white">Seamless care from pickup to drop-off.</h2>
+                </div>
+
+                <div class="relative pl-4 sm:pl-10 border-l-2 border-zari space-y-8 sm:space-y-12 ml-2 sm:ml-0">
+                    <div class="relative pl-4 sm:pl-6">
+                        <div class="absolute -left-[23px] sm:-left-[31px] top-1 w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-navy-deep border-2 border-zari"></div>
+                        <span class="font-mono text-[11px] sm:text-xs text-cyan tracking-wider uppercase">01 / DOORSTEP PICKUP</span>
+                        <h3 class="text-lg sm:text-xl font-bold font-display text-white mt-1">Truck & Bike Collection Fleet</h3>
+                        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed max-w-xl mt-1 sm:mt-2">Pick a convenient slot. Our logistics team logs, tags, and safely collects your items right from your door.</p>
+                    </div>
+                    <div class="relative pl-4 sm:pl-6">
+                        <div class="absolute -left-[23px] sm:-left-[31px] top-1 w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-navy-deep border-2 border-zari"></div>
+                        <span class="font-mono text-[11px] sm:text-xs text-cyan tracking-wider uppercase">02 / MACHINE SEPARATION</span>
+                        <h3 class="text-lg sm:text-xl font-bold font-display text-white mt-1">Targeted Machine Treatment</h3>
+                        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed max-w-xl mt-1 sm:mt-2">Sarees go to roll polishing, shoes to auto-brushing, stain removal to ultrasonic jets, and clothes to smart washers.</p>
+                    </div>
+                    <div class="relative pl-4 sm:pl-6">
+                        <div class="absolute -left-[23px] sm:-left-[31px] top-1 w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-navy-deep border-2 border-zari"></div>
+                        <span class="font-mono text-[11px] sm:text-xs text-cyan tracking-wider uppercase">03 / STEAM PRESS & PACKING</span>
+                        <h3 class="text-lg sm:text-xl font-bold font-display text-white mt-1">Boiler Steam & Heat-Seal Pack</h3>
+                        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed max-w-xl mt-1 sm:mt-2">Boiler ironed for lasting crispness and sealed in dust-proof protective wrapping.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="py-12 sm:py-20 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto relative z-10">
+            <div class="max-w-3xl mb-10 sm:mb-16 space-y-2 sm:space-y-3">
+                <div class="inline-flex items-center gap-2 text-cyan font-mono text-xs uppercase tracking-widest">
+                    <span class="w-6 h-px bg-cyan"></span> Service Plans
+                </div>
+                <h2 class="text-2xl sm:text-5xl font-bold font-display text-white">Transparent pricing with zero hidden fees.</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+                <div class="glass-card glass-card-popup p-6 sm:p-8 rounded-2xl sm:rounded-3xl flex flex-col justify-between">
+                    <div>
+                        <span class="font-mono text-xs text-slate-400 tracking-wider uppercase">DAILY WEAR</span>
+                        <h4 class="text-xl sm:text-2xl font-bold font-display text-white mt-2 mb-2 sm:mb-3">Wash & Fold Plan</h4>
+                        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6">Designed for casual wardrobe items, towels, and bed linens.</p>
+                    </div>
+                    <a href="#contact" class="mt-4 sm:mt-8 block text-center py-3 rounded-xl border border-slate-700 text-white text-sm font-medium hover:border-cyan hover:text-cyan transition-colors">Choose Plan</a>
+                </div>
+
+                <div class="glass-card glass-card-popup p-6 sm:p-8 rounded-2xl sm:rounded-3xl flex flex-col justify-between border-zari/60 relative bg-navy-card/90">
+                    <span class="absolute -top-3 right-6 bg-zari text-navy-deep text-[10px] font-extrabold uppercase px-3 py-1 rounded-full tracking-wider shadow-lg">Most Popular</span>
+                    <div>
+                        <span class="font-mono text-xs text-zari tracking-wider uppercase">HERITAGE CARE</span>
+                        <h4 class="text-xl sm:text-2xl font-bold font-display text-white mt-2 mb-2 sm:mb-3">Silk & Saree Polish</h4>
+                        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6">Dedicated roll polish care for valuable festive and bridal sarees.</p>
+                    </div>
+                    <a href="#contact" class="mt-4 sm:mt-8 block text-center py-3 rounded-xl glowing-btn text-sm font-semibold text-navy-deep">Book Saree Polish</a>
+                </div>
+
+                <div class="glass-card glass-card-popup p-6 sm:p-8 rounded-2xl sm:rounded-3xl flex flex-col justify-between">
+                    <div>
+                        <span class="font-mono text-xs text-slate-400 tracking-wider uppercase">SPECIALTY</span>
+                        <h4 class="text-xl sm:text-2xl font-bold font-display text-white mt-2 mb-2 sm:mb-3">Shoe & Stain Care</h4>
+                        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6">Deep footwear restoration and precision spot stain extraction.</p>
+                    </div>
+                    <a href="#contact" class="mt-4 sm:mt-8 block text-center py-3 rounded-xl border border-slate-700 text-white text-sm font-medium hover:border-cyan hover:text-cyan transition-colors">Select Add-On</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact & Booking Section -->
+    <section id="contact" class="relative z-20 py-16 sm:py-24 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto bg-navy-deep">
+        <div class="glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 border-zari/30 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center shadow-2xl">
+            <div class="lg:col-span-6 space-y-3 sm:space-y-4">
+                <h2 class="text-2xl sm:text-4xl font-bold font-display text-white">Book your pickup today.</h2>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                    Share your details below and our team will receive your pickup request instantly via WhatsApp.
+                </p>
+            </div>
+
+            <div class="lg:col-span-6">
+                <!-- WhatsApp Integration Form -->
+                <form class="space-y-3 sm:space-y-4" onsubmit="sendToWhatsApp(event)">
+                    <div>
+                        <input type="text" id="custName" placeholder="Your Full Name" required class="w-full px-4 sm:px-5 py-3 sm:py-3.5 rounded-xl bg-navy-deep/90 border border-slate-700 text-white placeholder-slate-400 focus:outline-none focus:border-zari text-sm">
+                    </div>
+                    <div>
+                        <input type="tel" id="custPhone" placeholder="Phone Number" required class="w-full px-4 sm:px-5 py-3 sm:py-3.5 rounded-xl bg-navy-deep/90 border border-slate-700 text-white placeholder-slate-400 focus:outline-none focus:border-zari text-sm">
+                    </div>
+                    <div>
+                        <select id="custService" class="w-full px-4 sm:px-5 py-3 sm:py-3.5 rounded-xl bg-navy-deep/90 border border-slate-700 text-white focus:outline-none focus:border-zari text-sm">
+                            <option value="Saree Roll Polish Ironing">Saree Roll Polish Ironing</option>
+                            <option value="Shoe Cleaning Service">Shoe Cleaning Service</option>
+                            <option value="Stain Removal Service">Stain Removal Service</option>
+                            <option value="Washing Machines (Wash & Fold)">Washing Machines (Wash & Fold)</option>
+                            <option value="Steam / Starch Ironing">Steam / Starch Ironing</option>
+                            <option value="Clothes Packing">Clothes Packing</option>
+                        </select>
+                    </div>
+                    <button type="submit" id="submitBtn" class="w-full py-3.5 sm:py-4 rounded-xl glowing-btn font-bold text-sm tracking-wide flex items-center justify-center gap-2">
+                        <span>Request Pickup via WhatsApp</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript For Mobile Menu & WhatsApp -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+
+        function sendToWhatsApp(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('custName').value;
+            const phone = document.getElementById('custPhone').value;
+            const service = document.getElementById('custService').value;
+            
+            const targetNumber = "918056166017"; 
+
+            const message = `*New Pickup Request - DRY1*%0A%0A` +
+                            `*Name:* ${encodeURIComponent(name)}%0A` +
+                            `*Phone:* ${encodeURIComponent(phone)}%0A` +
+                            `*Selected Service:* ${encodeURIComponent(service)}`;
+
+            const whatsappURL = `https://api.whatsapp.com/send?phone=${targetNumber}&text=${message}`;
+
+            const btn = document.getElementById('submitBtn');
+            btn.innerHTML = 'Opening WhatsApp... ✓';
+
+            window.open(whatsappURL, '_blank');
+        }
+    </script>
+
+    <!-- Footer -->
+    <footer class="relative z-20 py-8 sm:py-12 px-4 sm:px-6 lg:px-12 border-t border-slate-800 text-slate-400 text-xs sm:text-sm bg-navy-deep">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+            <div class="flex items-center gap-2 font-display text-white text-base sm:text-lg">
+                <span class="w-2.5 h-2.5 rounded-full bg-cyan"></span> DRY1 — Premium Laundry & Saree Care Studio
+            </div>
+            <div class="font-mono text-xs text-slate-500">
+                © 2026 Dry1. Precision care for every fabric.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
