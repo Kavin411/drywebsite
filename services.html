@@ -45,11 +45,11 @@
             letter-spacing: -0.01em;
         }
         .glass-card {
-            background: rgba(10, 23, 46, 0.8);
+            background: rgba(6, 18, 36, 0.85);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(202, 165, 74, 0.25);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
         }
         .zari-glow-text {
             text-shadow: 0 0 20px rgba(202, 165, 74, 0.5);
@@ -69,7 +69,18 @@
         }
     </style>
 </head>
-<body class="relative min-h-screen text-slate-100 antialiased bg-navy-deep">
+<body class="relative min-h-screen text-slate-100 antialiased">
+
+    <!-- Background Video Layer (Fixed & Active) -->
+    <div class="fixed top-0 left-0 w-full h-full pointer-events-none z-0 overflow-hidden">
+        <video autoplay loop muted playsinline class="w-full h-full object-cover brightness-[0.95] contrast-[1.05]">
+            <source src="dry1_showcase.mp4" type="video/mp4">
+            <source src="washing.mp4" type="video/mp4">
+            Your browser does not support video playback.
+        </video>
+        <!-- Dark Gradient Overlay for Readability -->
+        <div class="absolute inset-0 bg-gradient-to-b from-navy-deep/85 via-navy-deep/75 to-navy-deep"></div>
+    </div>
 
     <!-- Fixed Header -->
     <nav class="fixed top-0 left-0 w-full z-50 px-4 sm:px-6 lg:px-12 py-3.5 flex justify-between items-center bg-navy-deep/90 backdrop-blur-xl border-b border-zari/20">
@@ -93,139 +104,144 @@
         </div>
     </nav>
 
-    <!-- Services Banner Section -->
-    <section class="relative z-10 pt-32 sm:pt-40 pb-12 px-4 sm:px-6 lg:px-12 max-w-5xl mx-auto text-center">
-        
-        <!-- Top Badge -->
-        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-navy-card border border-cyan/40 text-cyan text-xs font-mono mb-4 shadow-lg">
-            <span class="w-2 h-2 rounded-full bg-cyan"></span> SPECIALIZED EQUIPMENT & CRAFTSMANSHIP
-        </div>
+    <!-- Main Content Container -->
+    <div class="relative z-10">
 
-        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight font-display mb-4">
-            Our Care <span class="text-zari zari-glow-text">Services</span> <br>
-            <span class="text-cyan">& Studio</span>
-        </h1>
-
-        <p class="text-slate-300 text-xs sm:text-base max-w-xl mx-auto leading-relaxed mb-6 font-light">
-            Explore our state-of-the-art machinery and specialized treatment workflows designed to deliver pristine care for every fabric and footwear type.
-        </p>
-
-        <!-- Horizontal Pill Filters (Scrollable Mobile UI) -->
-        <div class="w-full overflow-hidden">
-            <div class="flex overflow-x-auto no-scrollbar justify-start sm:justify-center gap-2 py-2 px-1">
-                <a href="#service-1" class="shrink-0 px-3.5 py-2 rounded-xl bg-navy-card border border-zari/30 text-zari text-xs font-medium hover:bg-zari/20 transition-all">Saree Roll Polish</a>
-                <a href="#service-2" class="shrink-0 px-3.5 py-2 rounded-xl bg-navy-card border border-cyan/30 text-cyan text-xs font-medium hover:bg-cyan/20 transition-all">Shoe Spa</a>
-                <a href="#service-3" class="shrink-0 px-3.5 py-2 rounded-xl bg-navy-card border border-white/20 text-slate-300 text-xs font-medium hover:border-white transition-all">Stain Extraction</a>
-                <a href="#service-4" class="shrink-0 px-3.5 py-2 rounded-xl bg-navy-card border border-white/20 text-slate-300 text-xs font-medium hover:border-white transition-all">Smart Wash</a>
-                <a href="#service-5" class="shrink-0 px-3.5 py-2 rounded-xl bg-navy-card border border-white/20 text-slate-300 text-xs font-medium hover:border-white transition-all">Steam Press</a>
+        <!-- Services Banner Section -->
+        <section class="pt-32 sm:pt-40 pb-8 px-4 sm:px-6 lg:px-12 max-w-5xl mx-auto text-center">
+            
+            <!-- Top Badge -->
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-navy-card/90 border border-cyan/40 text-cyan text-xs font-mono mb-4 shadow-lg backdrop-blur-md">
+                <span class="w-2 h-2 rounded-full bg-cyan"></span> SPECIALIZED EQUIPMENT & CRAFTSMANSHIP
             </div>
-        </div>
-    </section>
 
-    <!-- Detailed Services List -->
-    <section class="py-6 px-4 sm:px-6 lg:px-12 max-w-5xl mx-auto space-y-8 pb-24 relative z-10">
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight font-display mb-4">
+                Our Care <span class="text-zari zari-glow-text">Services</span> <br>
+                <span class="text-cyan">& Studio</span>
+            </h1>
 
-        <!-- Service 1: Saree Roll Polish -->
-        <div id="service-1" class="glass-card rounded-2xl p-6 sm:p-8 border-zari/40 relative overflow-hidden">
-            <div class="flex flex-col md:flex-row justify-between md:items-center gap-4 border-b border-slate-700/60 pb-4 mb-4">
-                <div class="flex items-center gap-3">
-                    <span class="px-3 py-1 bg-zari/20 text-zari font-mono text-xs rounded-lg font-bold">01 / HERITAGE CARE</span>
-                    <h2 class="text-xl sm:text-2xl font-bold font-display text-white">Saree Roll Polish Ironing</h2>
-                </div>
-                <span class="text-xs font-mono text-slate-400">Precision Roller Tech</span>
-            </div>
-            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
-                Designed specifically for silk, Kanjeevaram, and designer sarees. Our heavy-duty felt roll machines iron out creases without damaging delicate zari work or altering fabric texture.
+            <p class="text-slate-300 text-xs sm:text-base max-w-xl mx-auto leading-relaxed mb-6 font-light">
+                Explore our state-of-the-art machinery and specialized treatment workflows designed to deliver pristine care for every fabric and footwear type.
             </p>
-            <div class="flex flex-wrap gap-2">
-                <span class="text-[10px] font-mono bg-navy-deep px-2.5 py-1 rounded text-cyan border border-cyan/20">Felt Roller Press</span>
-                <span class="text-[10px] font-mono bg-navy-deep px-2.5 py-1 rounded text-zari border border-zari/20">Zari Protection</span>
-                <span class="text-[10px] font-mono bg-navy-deep px-2.5 py-1 rounded text-slate-300">Stiff & Soft Finish Options</span>
-            </div>
-        </div>
 
-        <!-- Service 2: Shoe Cleaning -->
-        <div id="service-2" class="glass-card rounded-2xl p-6 sm:p-8 border-cyan/40 relative overflow-hidden">
-            <div class="flex flex-col md:flex-row justify-between md:items-center gap-4 border-b border-slate-700/60 pb-4 mb-4">
-                <div class="flex items-center gap-3">
-                    <span class="px-3 py-1 bg-cyan/20 text-cyan font-mono text-xs rounded-lg font-bold">02 / FOOTWEAR SPA</span>
-                    <h2 class="text-xl sm:text-2xl font-bold font-display text-white">Shoe Cleaning & Spa</h2>
+            <!-- Horizontal Pill Filters -->
+            <div class="w-full overflow-hidden">
+                <div class="flex overflow-x-auto no-scrollbar justify-start sm:justify-center gap-2 py-2 px-1">
+                    <a href="#service-1" class="shrink-0 px-3.5 py-2 rounded-xl bg-navy-card/80 border border-zari/40 text-zari text-xs font-medium hover:bg-zari/20 transition-all shadow-md">Saree Roll Polish</a>
+                    <a href="#service-2" class="shrink-0 px-3.5 py-2 rounded-xl bg-navy-card/80 border border-cyan/40 text-cyan text-xs font-medium hover:bg-cyan/20 transition-all shadow-md">Shoe Spa</a>
+                    <a href="#service-3" class="shrink-0 px-3.5 py-2 rounded-xl bg-navy-card/80 border border-white/20 text-slate-300 text-xs font-medium hover:border-white transition-all shadow-md">Stain Extraction</a>
+                    <a href="#service-4" class="shrink-0 px-3.5 py-2 rounded-xl bg-navy-card/80 border border-white/20 text-slate-300 text-xs font-medium hover:border-white transition-all shadow-md">Smart Wash</a>
+                    <a href="#service-5" class="shrink-0 px-3.5 py-2 rounded-xl bg-navy-card/80 border border-white/20 text-slate-300 text-xs font-medium hover:border-white transition-all shadow-md">Steam Press</a>
                 </div>
-                <span class="text-xs font-mono text-slate-400">Deep Sole Restoration</span>
             </div>
-            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
-                Specialized mechanized brushing, foam washing, and anti-bacterial drying for sneakers, suede shoes, leather boots, and athletic footwear.
-            </p>
-            <div class="flex flex-wrap gap-2">
-                <span class="text-[10px] font-mono bg-navy-deep px-2.5 py-1 rounded text-cyan border border-cyan/20">Deep Foam Wash</span>
-                <span class="text-[10px] font-mono bg-navy-deep px-2.5 py-1 rounded text-slate-300">Deodorization</span>
-                <span class="text-[10px] font-mono bg-navy-deep px-2.5 py-1 rounded text-zari border border-zari/20">Sole Whitening</span>
-            </div>
-        </div>
+        </section>
 
-        <!-- Service 3: Stain Extraction -->
-        <div id="service-3" class="glass-card rounded-2xl p-6 sm:p-8 border-slate-700 relative overflow-hidden">
-            <div class="flex flex-col md:flex-row justify-between md:items-center gap-4 border-b border-slate-700/60 pb-4 mb-4">
-                <div class="flex items-center gap-3">
-                    <span class="px-3 py-1 bg-slate-800 text-slate-300 font-mono text-xs rounded-lg font-bold">03 / ADVANCED</span>
-                    <h2 class="text-xl sm:text-2xl font-bold font-display text-white">Targeted Stain Removal</h2>
+        <!-- Detailed Services List -->
+        <section class="py-6 px-4 sm:px-6 lg:px-12 max-w-5xl mx-auto space-y-8 pb-20">
+
+            <!-- Service 1: Saree Roll Polish -->
+            <div id="service-1" class="glass-card rounded-2xl p-6 sm:p-8 border-zari/40 relative overflow-hidden">
+                <div class="flex flex-col md:flex-row justify-between md:items-center gap-4 border-b border-slate-700/60 pb-4 mb-4">
+                    <div class="flex items-center gap-3">
+                        <span class="px-3 py-1 bg-zari/20 text-zari font-mono text-xs rounded-lg font-bold">01 / HERITAGE CARE</span>
+                        <h2 class="text-xl sm:text-2xl font-bold font-display text-white">Saree Roll Polish Ironing</h2>
+                    </div>
+                    <span class="text-xs font-mono text-slate-400">Precision Roller Tech</span>
                 </div>
-                <span class="text-xs font-mono text-slate-400">Spot Jet Gun</span>
-            </div>
-            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
-                Advanced spot cleaning treatment targeting oil, ink, grease, tea, and food stains without bleeding color or weakening garment fibers.
-            </p>
-            <div class="flex flex-wrap gap-2">
-                <span class="text-[10px] font-mono bg-navy-deep px-2.5 py-1 rounded text-cyan border border-cyan/20">Ultrasonic Spotting</span>
-                <span class="text-[10px] font-mono bg-navy-deep px-2.5 py-1 rounded text-slate-300">Color Safe Solvents</span>
-            </div>
-        </div>
-
-        <!-- Service 4: Washing Machines -->
-        <div id="service-4" class="glass-card rounded-2xl p-6 sm:p-8 border-slate-700 relative overflow-hidden">
-            <div class="flex flex-col md:flex-row justify-between md:items-center gap-4 border-b border-slate-700/60 pb-4 mb-4">
-                <div class="flex items-center gap-3">
-                    <span class="px-3 py-1 bg-slate-800 text-slate-300 font-mono text-xs rounded-lg font-bold">04 / DAILY WEAR</span>
-                    <h2 class="text-xl sm:text-2xl font-bold font-display text-white">Smart Washing Machines (Wash & Fold)</h2>
+                <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
+                    Designed specifically for silk, Kanjeevaram, and designer sarees. Our heavy-duty felt roll machines iron out creases without damaging delicate zari work or altering fabric texture.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-[10px] font-mono bg-navy-deep/80 px-2.5 py-1 rounded text-cyan border border-cyan/20">Felt Roller Press</span>
+                    <span class="text-[10px] font-mono bg-navy-deep/80 px-2.5 py-1 rounded text-zari border border-zari/20">Zari Protection</span>
+                    <span class="text-[10px] font-mono bg-navy-deep/80 px-2.5 py-1 rounded text-slate-300">Stiff & Soft Finish Options</span>
                 </div>
-                <span class="text-xs font-mono text-slate-400">Micro-Bubble Tech</span>
             </div>
-            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
-                Hygienic individual load washing with skin-safe eco detergents, softeners, and fresh water triple rinse for daily apparel.
-            </p>
-            <div class="flex flex-wrap gap-2">
-                <span class="text-[10px] font-mono bg-navy-deep px-2.5 py-1 rounded text-cyan border border-cyan/20">100% Fresh Water</span>
-                <span class="text-[10px] font-mono bg-navy-deep px-2.5 py-1 rounded text-slate-300">Separate Load Hygienic Wash</span>
-            </div>
-        </div>
 
-        <!-- Service 5: Steam Ironing -->
-        <div id="service-5" class="glass-card rounded-2xl p-6 sm:p-8 border-slate-700 relative overflow-hidden">
-            <div class="flex flex-col md:flex-row justify-between md:items-center gap-4 border-b border-slate-700/60 pb-4 mb-4">
-                <div class="flex items-center gap-3">
-                    <span class="px-3 py-1 bg-slate-800 text-slate-300 font-mono text-xs rounded-lg font-bold">05 / FINISHING</span>
-                    <h2 class="text-xl sm:text-2xl font-bold font-display text-white">Boiler Steam & Starch Ironing</h2>
+            <!-- Service 2: Shoe Cleaning -->
+            <div id="service-2" class="glass-card rounded-2xl p-6 sm:p-8 border-cyan/40 relative overflow-hidden">
+                <div class="flex flex-col md:flex-row justify-between md:items-center gap-4 border-b border-slate-700/60 pb-4 mb-4">
+                    <div class="flex items-center gap-3">
+                        <span class="px-3 py-1 bg-cyan/20 text-cyan font-mono text-xs rounded-lg font-bold">02 / FOOTWEAR SPA</span>
+                        <h2 class="text-xl sm:text-2xl font-bold font-display text-white">Shoe Cleaning & Spa</h2>
+                    </div>
+                    <span class="text-xs font-mono text-slate-400">Deep Sole Restoration</span>
                 </div>
-                <span class="text-xs font-mono text-slate-400">Zero Burn Steam</span>
+                <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
+                    Specialized mechanized brushing, foam washing, and anti-bacterial drying for sneakers, suede shoes, leather boots, and athletic footwear.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-[10px] font-mono bg-navy-deep/80 px-2.5 py-1 rounded text-cyan border border-cyan/20">Deep Foam Wash</span>
+                    <span class="text-[10px] font-mono bg-navy-deep/80 px-2.5 py-1 rounded text-slate-300">Deodorization</span>
+                    <span class="text-[10px] font-mono bg-navy-deep/80 px-2.5 py-1 rounded text-zari border border-zari/20">Sole Whitening</span>
+                </div>
             </div>
-            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
-                High-pressure industrial boiler steam ironing for crisp suits, shirts, and cotton garments without shine marks or burn risk.
-            </p>
-            <div class="flex flex-wrap gap-2">
-                <span class="text-[10px] font-mono bg-navy-deep px-2.5 py-1 rounded text-zari border border-zari/20">Crisp Starch Finish</span>
-                <span class="text-[10px] font-mono bg-navy-deep px-2.5 py-1 rounded text-slate-300">Suit & Blazer Care</span>
+
+            <!-- Service 3: Stain Extraction -->
+            <div id="service-3" class="glass-card rounded-2xl p-6 sm:p-8 border-slate-700 relative overflow-hidden">
+                <div class="flex flex-col md:flex-row justify-between md:items-center gap-4 border-b border-slate-700/60 pb-4 mb-4">
+                    <div class="flex items-center gap-3">
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 font-mono text-xs rounded-lg font-bold">03 / ADVANCED</span>
+                        <h2 class="text-xl sm:text-2xl font-bold font-display text-white">Targeted Stain Removal</h2>
+                    </div>
+                    <span class="text-xs font-mono text-slate-400">Spot Jet Gun</span>
+                </div>
+                <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
+                    Advanced spot cleaning treatment targeting oil, ink, grease, tea, and food stains without bleeding color or weakening garment fibers.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-[10px] font-mono bg-navy-deep/80 px-2.5 py-1 rounded text-cyan border border-cyan/20">Ultrasonic Spotting</span>
+                    <span class="text-[10px] font-mono bg-navy-deep/80 px-2.5 py-1 rounded text-slate-300">Color Safe Solvents</span>
+                </div>
             </div>
-        </div>
 
-        <!-- Call to Action -->
-        <div class="text-center pt-8">
-            <a href="index.html#contact" class="glowing-btn px-8 py-4 rounded-full font-bold text-sm tracking-wider inline-block">Book Service Pickup Now →</a>
-        </div>
+            <!-- Service 4: Washing Machines -->
+            <div id="service-4" class="glass-card rounded-2xl p-6 sm:p-8 border-slate-700 relative overflow-hidden">
+                <div class="flex flex-col md:flex-row justify-between md:items-center gap-4 border-b border-slate-700/60 pb-4 mb-4">
+                    <div class="flex items-center gap-3">
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 font-mono text-xs rounded-lg font-bold">04 / DAILY WEAR</span>
+                        <h2 class="text-xl sm:text-2xl font-bold font-display text-white">Smart Washing Machines (Wash & Fold)</h2>
+                    </div>
+                    <span class="text-xs font-mono text-slate-400">Micro-Bubble Tech</span>
+                </div>
+                <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
+                    Hygienic individual load washing with skin-safe eco detergents, softeners, and fresh water triple rinse for daily apparel.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-[10px] font-mono bg-navy-deep/80 px-2.5 py-1 rounded text-cyan border border-cyan/20">100% Fresh Water</span>
+                    <span class="text-[10px] font-mono bg-navy-deep/80 px-2.5 py-1 rounded text-slate-300">Separate Load Hygienic Wash</span>
+                </div>
+            </div>
 
-    </section>
+            <!-- Service 5: Steam Ironing -->
+            <div id="service-5" class="glass-card rounded-2xl p-6 sm:p-8 border-slate-700 relative overflow-hidden">
+                <div class="flex flex-col md:flex-row justify-between md:items-center gap-4 border-b border-slate-700/60 pb-4 mb-4">
+                    <div class="flex items-center gap-3">
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 font-mono text-xs rounded-lg font-bold">05 / FINISHING</span>
+                        <h2 class="text-xl sm:text-2xl font-bold font-display text-white">Boiler Steam & Starch Ironing</h2>
+                    </div>
+                    <span class="text-xs font-mono text-slate-400">Zero Burn Steam</span>
+                </div>
+                <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
+                    High-pressure industrial boiler steam ironing for crisp suits, shirts, and cotton garments without shine marks or burn risk.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-[10px] font-mono bg-navy-deep/80 px-2.5 py-1 rounded text-zari border border-zari/20">Crisp Starch Finish</span>
+                    <span class="text-[10px] font-mono bg-navy-deep/80 px-2.5 py-1 rounded text-slate-300">Suit & Blazer Care</span>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="text-center pt-8">
+                <a href="index.html#contact" class="glowing-btn px-8 py-4 rounded-full font-bold text-sm tracking-wider inline-block">Book Service Pickup Now →</a>
+            </div>
+
+        </section>
+
+    </div>
 
     <!-- Footer -->
-    <footer class="py-8 px-4 sm:px-6 border-t border-slate-800 text-slate-400 text-xs text-center bg-navy-deep">
+    <footer class="relative z-10 py-8 px-4 sm:px-6 border-t border-slate-800 text-slate-400 text-xs text-center bg-navy-deep/90 backdrop-blur-md">
         © 2026 Dry1. Precision care for every fabric.
     </footer>
 
