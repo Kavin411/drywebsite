@@ -104,6 +104,8 @@
         .video-glow-container {
             box-shadow: 0 0 30px rgba(34, 199, 224, 0.15);
         }
+        
+        /* Hide Scrollbar for Neat Pill Navigation */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
@@ -140,33 +142,33 @@
     <div class="relative z-10">
 
         <!-- Page Header Banner -->
-        <section class="relative pt-36 pb-12 px-6 lg:px-12 max-w-7xl mx-auto text-center">
+        <section class="relative pt-36 pb-8 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto text-center">
             <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan/20 border border-cyan/40 text-cyan text-xs font-mono tracking-widest uppercase mb-4 backdrop-blur-md">
                 <span class="w-2 h-2 rounded-full bg-cyan animate-pulse"></span> Specialized Equipment & Craftsmanship
             </div>
             <h1 class="text-4xl sm:text-6xl font-extrabold font-display text-white mb-4">
                 Our Care <span class="text-transparent bg-clip-text bg-gradient-to-r from-zari via-zariLight to-cyan zari-glow-text">Services & Studio</span>
             </h1>
-            <p class="text-slate-300 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
+            <p class="text-slate-300 max-w-2xl mx-auto text-sm sm:text-lg leading-relaxed px-2">
                 Explore our state-of-the-art machinery and specialized treatment workflows designed to deliver pristine care for every fabric and footwear type.
             </p>
 
-            <!-- Quick Filter Badges -->
-            <div class="w-full overflow-hidden pt-8">
-                <div class="flex flex-wrap justify-center gap-2 no-scrollbar">
-                    <a href="#service-1" class="px-4 py-1.5 rounded-full bg-navy-card/90 border border-zari/40 text-xs text-zari hover:bg-zari/20 transition-all">Saree Roll Polish</a>
-                    <a href="#service-2" class="px-4 py-1.5 rounded-full bg-navy-card/90 border border-cyan/40 text-xs text-cyan hover:bg-cyan/20 transition-all">Shoe Spa</a>
-                    <a href="#service-3" class="px-4 py-1.5 rounded-full bg-navy-card/90 border border-slate-700 text-xs text-slate-300 hover:border-zari transition-all">Stain Extraction</a>
-                    <a href="#service-4" class="px-4 py-1.5 rounded-full bg-navy-card/90 border border-slate-700 text-xs text-slate-300 hover:border-cyan transition-all">Smart Wash</a>
-                    <a href="#service-5" class="px-4 py-1.5 rounded-full bg-navy-card/90 border border-slate-700 text-xs text-slate-300 hover:border-zari transition-all">Steam Press</a>
-                    <a href="#service-6" class="px-4 py-1.5 rounded-full bg-navy-card/90 border border-slate-700 text-xs text-slate-300 hover:border-cyan transition-all">Clothes Packing</a>
-                    <a href="#service-7" class="px-4 py-1.5 rounded-full bg-navy-card/90 border border-slate-700 text-xs text-slate-300 hover:border-zari transition-all">Doorstep Logistics</a>
+            <!-- FIXED QUICK FILTER BUTTONS (Smooth Single Line Horizontal Scroll on Mobile, Centered on Desktop) -->
+            <div class="w-full pt-8 pb-2">
+                <div class="flex items-center gap-2.5 overflow-x-auto no-scrollbar px-2 sm:justify-center">
+                    <a href="#service-1" class="whitespace-nowrap shrink-0 px-4 py-2 rounded-full bg-navy-card/90 border border-zari/40 text-xs text-zari hover:bg-zari/20 transition-all shadow-md">Saree Roll Polish</a>
+                    <a href="#service-2" class="whitespace-nowrap shrink-0 px-4 py-2 rounded-full bg-navy-card/90 border border-cyan/40 text-xs text-cyan hover:bg-cyan/20 transition-all shadow-md">Shoe Spa</a>
+                    <a href="#service-3" class="whitespace-nowrap shrink-0 px-4 py-2 rounded-full bg-navy-card/90 border border-slate-700 text-xs text-slate-300 hover:border-zari transition-all shadow-md">Stain Extraction</a>
+                    <a href="#service-4" class="whitespace-nowrap shrink-0 px-4 py-2 rounded-full bg-navy-card/90 border border-slate-700 text-xs text-slate-300 hover:border-cyan transition-all shadow-md">Smart Wash</a>
+                    <a href="#service-5" class="whitespace-nowrap shrink-0 px-4 py-2 rounded-full bg-navy-card/90 border border-slate-700 text-xs text-slate-300 hover:border-zari transition-all shadow-md">Steam Press</a>
+                    <a href="#service-6" class="whitespace-nowrap shrink-0 px-4 py-2 rounded-full bg-navy-card/90 border border-slate-700 text-xs text-slate-300 hover:border-cyan transition-all shadow-md">Clothes Packing</a>
+                    <a href="#service-7" class="whitespace-nowrap shrink-0 px-4 py-2 rounded-full bg-navy-card/90 border border-slate-700 text-xs text-slate-300 hover:border-zari transition-all shadow-md">Doorstep Logistics</a>
                 </div>
             </div>
         </section>
 
         <!-- Services Grid with Integrated Video Players -->
-        <section class="py-8 px-6 lg:px-12 max-w-7xl mx-auto space-y-16">
+        <section class="py-6 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto space-y-16">
 
             <!-- Service 1: Saree Roll Polish Ironing Machine -->
             <div id="service-1" class="glass-card glass-card-hover rounded-3xl p-6 lg:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-zari/40">
